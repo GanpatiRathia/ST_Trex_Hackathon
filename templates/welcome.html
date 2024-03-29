@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% load plotly_dash %}
+
+<h1>Home Page</h1>
+<!--
+    <div class="{% plotly_class name='SimpleExample' %} card" style="height: 100%; width: 100%;">
+        {% plotly_app name='SimpleExample' ratio=0.65 %}
+    </div>
+
+    <br>
+    {{ plot | safe }}
+    <br>
+-->
+<br><br>
+<div class="row">
+    <div class="col-md-4">
+    <label for="category">Category:</label>
+    <select name="category" id="category">
+    <option value="option1">All</option>
+    <select name="owner" id="owner">
+      <option value="all">All</option>
+      {% for owner in Category_list %}
+          <option value="{{ owner }}">{{ Category }}</option>
+      {% endfor %}
+    </select>
+    </div>
+    
+    <br><br>
+    
+    <div class="col-md-4">
+    <label for="owner">Owner Name:</label>
+    <select name="owner" id="owner">
+      <option value="all">All</option>
+      {% for owner in owner_list %}
+          <option value="{{ owner }}">{{ owner }}</option>
+      {% endfor %}
+    </select>
+    </div>
+    
+    <br><br>
+    
+    <div class="col-md-4">
+    <label for="from">Time period from:</label>
+    <input type="date" id="from" name="from">
+    <label for="to">to:</label>
+    <input type="date" id="to" name="to">
+    </div>
+    </div>
+     
+    <script>
+    var generateGraphBtn = document.getElementById('generate-graph-btn');
+      var graphContainer = document.getElementById('graph-container');
+     
+      generateGraphBtn.addEventListener('click', function() {
+        var category = document.getElementById('category').value;
+        var owner = document.getElementById('owner').value;
+        var from = document.getElementById('from').value;
+        var to = document.getElementById('to').value;
+     
+        // graphContainer.innerHTML = '<p>Graph will be displayed here</p>';
+      });
+     
+     
+    </script>
+
+{% endblock %}

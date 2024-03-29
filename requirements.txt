@@ -1,0 +1,8 @@
+django
+plotly
+django_plotly_dash
+channels
+daphne
+redis
+django-redis
+channels-redis
